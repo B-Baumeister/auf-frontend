@@ -1,1 +1,47 @@
 <app-form></app-form>
+<div class="demo-button-container">
+  <button mat-raised-button (click)="addData()" class="demo-button">
+    Add data
+  </button>
+  <button
+    mat-raised-button
+    [disabled]="!dataSource.length"
+    (click)="removeData()"
+    class="demo-button"
+  >
+    Remove data
+  </button>
+</div>
+
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8 demo-table">
+  <!-- Position Column -->
+  <ng-container matColumnDef="position">
+    <th mat-header-cell *matHeaderCellDef>No.</th>
+    <td mat-cell *matCellDef="let element">{{ element.position }}</td>
+  </ng-container>
+
+  <!-- Kundenname Column -->
+  <ng-container matColumnDef="Kundenname">
+    <th mat-header-cell *matHeaderCellDef>Kundenname</th>
+    <td mat-cell *matCellDef="let element">{{ element.Kundenname }}</td>
+  </ng-container>
+
+  <!-- Projektname Column -->
+  <ng-container matColumnDef="Projektname">
+    <th mat-header-cell *matHeaderCellDef>Projektname</th>
+    <td mat-cell *matCellDef="let element">{{ element.Projektname }}</td>
+  </ng-container>
+
+  <!-- Erstellername Column -->
+  <ng-container matColumnDef="Erstellername">
+    <th mat-header-cell *matHeaderCellDef>Erstellername</th>
+    <td mat-cell *matCellDef="let element">{{ element.Erstellername }}</td>
+  </ng-container>
+  <!-- Erstelldatum Column -->
+  <ng-container matColumnDef="Erstelldatum">
+    <th mat-header-cell *matHeaderCellDef>Erstelldatum</th>
+    <td mat-cell *matCellDef="let element">{{ element.Erstelldatum }}</td>
+  </ng-container>
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+</table>

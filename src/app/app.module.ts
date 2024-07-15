@@ -8,22 +8,19 @@ import { HeaderComponent } from './header/header.component';
 import { MainComponent } from './main/main.component';
 import { TableComponent } from './table/table.component';
 import { FormComponent } from './form/form.component';
-
+/* import {} */
+import { MatButtonModule } from '@angular/material/button';
+import { MatTableModule } from '@angular/material/table';
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     MainComponent,
     TableComponent,
-    FormComponent
+    FormComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule
-  ],
-  providers: [
-    provideAnimationsAsync()
-  ],
-  bootstrap: [AppComponent]
+  imports: [BrowserModule, MatButtonModule, MatTableModule, AppRoutingModule],
+  providers: [provideAnimationsAsync()],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
