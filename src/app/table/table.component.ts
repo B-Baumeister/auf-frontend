@@ -2,6 +2,7 @@ import { Component, ViewChild, OnInit } from '@angular/core';
 import { MatTable } from '@angular/material/table';
 import { provideNativeDateAdapter } from '@angular/material/core';
 import { trigger, transition, style, animate } from '@angular/animations';
+
 @Component({
   selector: 'app-table',
   templateUrl: './table.component.html',
