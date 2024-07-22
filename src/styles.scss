@@ -1,4 +1,73 @@
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  background-color: #1f2446;
+}
+
+.rejected {
+  background-color: #ff006e;
+}
+.accept {
+  background-color: #a5a9c6;
+}
+
+/* .text {
+  color: #ffffff;
+}
+ */
+.demo-table {
+  width: 100%;
+  background-color: #3d4370 !important;
+  padding: 50px;
+  border-radius: 10px;
+  border-style: none !important;
+}
+
+.demo-button-container {
+  padding-bottom: 16px;
+}
+
+.mdc-data-table__cell {
+  margin: 50px;
+  background-color: #3d4370;
+}
+.overviewTable {
+  margin: 20px;
+}
+.content > .mat-mdc-raised-button {
+  display: flex;
+}
+
+.mat-mdc-raised-button {
+  background-color: #ff006e !important;
+}
+.mdc-button__label {
+  color: white !important;
+}
+/* .mat-mdc-card-content {
+  
+} */
+
+.mat-mdc-card {
+  background-color: #1f2446 !important;
+  display: flex !important;
+  flex-direction: row !important;
+  justify-content: space-around !important;
+  align-items: center !important;
+}
+.mat-typography {
+  color: white !important;
+  justify-content: space-between !important;
+}
+
+.mat-mdc-header-cell {
+  background-color: #a5a9c6 !important;
+  color: aliceblue;
+  align-items: center;
+}

@@ -11,6 +11,8 @@ import { FormComponent } from './form/form.component';
 /* import {} */
 import { MatButtonModule } from '@angular/material/button';
 import { MatTableModule } from '@angular/material/table';
+import { MatCardModule } from '@angular/material/card';
+import { MatIconModule } from '@angular/material/icon';
 @NgModule({
   declarations: [
     AppComponent,
@@ -19,7 +21,14 @@ import { MatTableModule } from '@angular/material/table';
     TableComponent,
     FormComponent,
   ],
-  imports: [BrowserModule, MatButtonModule, MatTableModule, AppRoutingModule],
+  imports: [
+    BrowserModule,
+    MatButtonModule,
+    MatTableModule,
+    AppRoutingModule,
+    MatCardModule,
+    MatIconModule,
+  ],
   providers: [provideAnimationsAsync()],
   bootstrap: [AppComponent],
 })

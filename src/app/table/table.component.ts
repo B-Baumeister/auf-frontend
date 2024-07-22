@@ -52,7 +52,7 @@ export interface schaetzungstable {
   Erstelldatum: Date;
 }
 
-const ELEMENT_DATA: schaetzungstable[] = [
+export const ELEMENT_DATA: schaetzungstable[] = [
   {
     position: 1,
     Kundenname: 'die Bäckereri',
