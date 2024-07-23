@@ -21,13 +21,13 @@ export class NewProjectComponent implements OnInit {
   };
   submitted = false;
 
-
   onSubmit() {
     this.submitted = true;
     this.project.Kundenname = this.signupForm.value.userData.kundenName;
     this.project.Projektname = this.signupForm.value.userData.projektName;
     this.project.Erstellername = this.signupForm.value.userData.erstellerName;
     this.project.Erstellerdatum = this.signupForm.value.userData.erstellerDatum;
+    this.signupForm.reset();
   }
   constructor() {}
 
