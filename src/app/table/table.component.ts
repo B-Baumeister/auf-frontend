@@ -2,7 +2,8 @@ import { Component, ViewChild, OnInit } from '@angular/core';
 import { MatTable } from '@angular/material/table';
 import { provideNativeDateAdapter } from '@angular/material/core';
 import { trigger, transition, style, animate } from '@angular/animations';
-
+import { DataService } from '../data.service';
+import { Schaetzungstable } from '../shared/schaetzungstable.model';
 @Component({
   selector: 'app-table',
   templateUrl: './table.component.html',
@@ -19,6 +20,7 @@ import { trigger, transition, style, animate } from '@angular/animations';
   ],
 })
 export class TableComponent implements OnInit {
+  //gibt die Reihenfolge der Spalten an
   displayedColumns: string[] = [
     'position',
     'Kundenname',
@@ -26,57 +28,28 @@ export class TableComponent implements OnInit {
     'Erstellername',
     'Erstelldatum',
   ];
-  dataSource = [...ELEMENT_DATA];
 
-  @ViewChild(MatTable) table!: MatTable<schaetzungstable>;
+  /*   dataSource = [...ELEMENT_DATA]; */
+  @ViewChild(MatTable) table!: MatTable<Schaetzungstable>;
+  dataSource: Schaetzungstable[];
 
-  addData() {
-    const randomElementIndex = Math.floor(Math.random() * ELEMENT_DATA.length);
-    this.dataSource.push(ELEMENT_DATA[randomElementIndex]);
+  addProject() {
+    this.dataSource.push({
+      position: this.dataSource.length + 1,
+      Kundenname: 'die Bäckereri',
+      Projektname: 'Subtitle #1',
+      Erstellername: 'Luzifer',
+      Erstelldatum: new Date('2023 - 01 - 01'),
+    });
+
     this.table.renderRows();
+
+    console.log(this.dataSource);
   }
 
-  removeData() {
-    this.dataSource.pop();
-    this.table.renderRows();
+  constructor(private dataService: DataService) {
+    this.dataSource = dataService.getProjects();
   }
-  constructor() {}
 
   ngOnInit() {}
 }
-
-export interface schaetzungstable {
-  position: number;
-  Kundenname: string;
-  Projektname: string;
-  Erstellername: string;
-  Erstelldatum: Date;
-}
-
-export const ELEMENT_DATA: schaetzungstable[] = [
-  {
-    position: 1,
-    Kundenname: 'die Bäckereri',
-    Projektname: 'Subtitle #1',
-    Erstellername: 'Luzifer',
-    Erstelldatum: new Date('2023 - 01 - 01'),
-  },
-  {
-    position: 2,
-    Kundenname: 'Clown AG',
-    Projektname: 'Subtitle #2',
-    Erstellername: 'Marianna',
-    Erstelldatum: new Date('2023 - 01 - 01'),
-  },
-  {
-    position: 3,
-    Kundenname: 'Book #3',
-    Projektname: 'Subtitle #3',
-    Erstellername: 'Henry',
-    Erstelldatum: new Date('2023 - 01 - 01'),
-  },
-
-  /**
-   * @title Adding and removing data when using an array-based datasource.
-   */
-];

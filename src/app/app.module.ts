@@ -18,7 +18,7 @@ import { NewProjectComponent } from './new-project/new-project.component';
 
 ///////////////////////////////////////
 /* import {} */
-
+import { MatDialogModule } from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';
 import { MatTableModule } from '@angular/material/table';
 import { MatCardModule } from '@angular/material/card';
@@ -27,9 +27,12 @@ import { MatIconModule } from '@angular/material/icon';
 ///////////////////////////////////////
 import { MatDatepickerModule } from '@angular/material/datepicker';
 
-import { FormsModule } from '@angular/forms';
+import { FormsModule, FormArray } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { DataService } from './data.service';
+import { provideNativeDateAdapter } from '@angular/material/core';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -50,8 +53,13 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     MatFormFieldModule,
     MatInputModule,
     MatDatepickerModule,
+    MatDialogModule,
   ],
-  // providers: [provideAnimationsAsync(), provideNativeDateAdapter()],
+  providers: [
+    provideAnimationsAsync(),
+    DataService,
+    provideNativeDateAdapter(),
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

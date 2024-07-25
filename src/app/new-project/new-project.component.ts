@@ -1,10 +1,17 @@
-import { Component, ViewChild, OnInit } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import {
+  Component,
+  ViewChild,
+  OnInit,
+  inject,
+  ChangeDetectionStrategy,
+} from '@angular/core';
+import { FormArray, FormControl, NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-new-project',
   templateUrl: './new-project.component.html',
   styleUrl: './new-project.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class NewProjectComponent implements OnInit {
   @ViewChild('f') signupForm!: NgForm;
@@ -32,4 +39,6 @@ export class NewProjectComponent implements OnInit {
   constructor() {}
 
   ngOnInit() {}
+
+  
 }

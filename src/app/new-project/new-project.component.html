@@ -1,110 +1,98 @@
-<mat-card appearance="outlined" class="container">
-  <form (ngSubmit)="onSubmit()" #f="ngForm" class="example-form">
-    <div id="user-data" ngModelGroup="userData">
-      <table class="example-full-width" cellSpacing="0">
-        <tr>
-          <td>
-            <!-- Kundenname -->
-            <mat-form-field class="example-full-width">
-              <mat-label for="kundenName">Kundenname:</mat-label>
-              <input
-                matInput
-                type="text"
-                id="kundenName"
-                class="form-control"
-                placeholder="Kundenname"
-                [ngModel]="Kundenname"
-                name="kundenName"
-              />
-            </mat-form-field>
-          </td>
+<form (ngSubmit)="onSubmit()" #f="ngForm" class="example-form">
+  <div id="user-data" ngModelGroup="userData">
+    <table class="example-full-width" cellSpacing="0">
+      <tr>
+        <td>
+          <!-- Kundenname -->
+          <mat-form-field class="example-full-width">
+            <mat-label for="kundenName">Kundenname:</mat-label>
+            <input
+              matInput
+              type="text"
+              id="kundenName"
+              class="form-control"
+              placeholder="Kundenname"
+              [ngModel]="Kundenname"
+              name="kundenName"
+            />
+          </mat-form-field>
+        </td>
 
-          <td>
-            <!-- Projektname -->
-            <mat-form-field class="example-full-width">
-              <mat-label for="projektName">Projektname:</mat-label>
-              <input
-                matInput
-                type="text"
-                id="projektName"
-                class="form-control"
-                placeholder="Projektname"
-                [ngModel]="Projektname"
-                name="projektName"
-              />
-            </mat-form-field>
-          </td>
+        <td>
+          <!-- Projektname -->
+          <mat-form-field class="example-full-width">
+            <mat-label for="projektName">Projektname:</mat-label>
+            <input
+              matInput
+              type="text"
+              id="projektName"
+              class="form-control"
+              placeholder="Projektname"
+              [ngModel]="Projektname"
+              name="projektName"
+            />
+          </mat-form-field>
+        </td>
+      </tr>
 
-          <td>
-            <!-- Erstellername -->
-            <mat-form-field class="example-full-width">
-              <mat-label for="erstellerName">Erstellername:</mat-label>
-              <input
-                matInput
-                type="text"
-                id="Projektbetreuer"
-                class="form-control"
-                placeholder="Erstellername"
-                [ngModel]="Erstellername"
-                name="erstellerName"
-              />
-            </mat-form-field>
-          </td>
-        </tr>
+      <td>
+        <!-- Erstellername -->
+        <mat-form-field class="example-full-width">
+          <mat-label for="erstellerName">Erstellername:</mat-label>
+          <input
+            matInput
+            type="text"
+            id="Projektbetreuer"
+            class="form-control"
+            placeholder="Erstellername"
+            [ngModel]="Erstellername"
+            name="erstellerName"
+          />
+        </mat-form-field>
+      </td>
 
-        <tr>
-          <td>
-            <!--  <mat-form-field class="example-full-width">
-              <mat-label for="erstellerDatum">Erstellerdatum:</mat-label>
-              <input matInput [matDatepicker]="datepicker" />
+      <td>
+        <mat-form-field class="example-full-width">
+          <mat-label for="erstellerDatum">Erstellerdatum:</mat-label>
+          <input matInput [matDatepicker]="datepicker" />
 
-              <mat-hint>MM/DD/YYYY</mat-hint>
-              <input
-                matInput
-                type="text"
-                id="Erstellerdatum"
-                class="form-control"
-                placeholder="Erstellerdatum"
-                [ngModel]="Erstellerdatum"
-                name="erstellerDatum"
-              />
+          <mat-hint>MM/DD/YYYY</mat-hint>
+          <input
+            matInput
+            type="text"
+            id="Erstellerdatum"
+            class="form-control"
+            placeholder="Erstellerdatum"
+            [ngModel]="Erstellerdatum"
+            name="erstellerDatum"
+          />
 
-              <mat-datepicker-toggle
-                matIconSuffix
-                [for]="datepicker"
-              ></mat-datepicker-toggle>
+          <mat-datepicker-toggle
+            matIconSuffix
+            [for]="datepicker"
+          ></mat-datepicker-toggle>
 
-              <mat-datepicker #datepicker
-                ><mat-datepicker-actions>
-                  <button mat-button matDatepickerCancel>Cancel</button>
-                  <button mat-raised-button matDatepickerApply>Apply</button>
-                </mat-datepicker-actions></mat-datepicker
-              >
-            </mat-form-field> -->
-          </td>
-          <!--   <button
-            mat-raised-button
-            color="accent"
-            type="button"
-            (click)="suggestUserName()"
+          <mat-datepicker #datepicker
+            ><mat-datepicker-actions>
+              <button mat-button matDatepickerCancel>Cancel</button>
+              <button mat-raised-button matDatepickerApply>Apply</button>
+            </mat-datepicker-actions></mat-datepicker
           >
-            ready
-          </button> -->
-          <button type="submit">SUBMIT</button>
-        </tr>
-      </table>
-    </div>
-  </form>
-</mat-card>
-<div>
-  <!-- <p *ngIf="!userData.valid && userData.touched">User Data is invalid!</p> -->
-  <div class="row" *ngIf="submitted">
-    <div class="col-xs-12">
-      <h3>PROJECT</h3>
-      <p>Kundenname: {{ project.Kundenname }}</p>
-      <p>Projektname: {{ project.Projektname }}</p>
-      <p>Erstellername: {{ project.Erstellername }}</p>
-      <p>Erstellerdatum: {{ project.Erstellerdatum }}</p>
-    </div>
+
+          <div>
+            <!-- <p *ngIf="!userData.valid && userData.touched">User Data is invalid!</p> -->
+            <div class="row" *ngIf="submitted"></div>
+          </div>
+        </mat-form-field>
+      </td>
+    </table>
   </div>
-</div>
+  <div>
+    <mat-dialog-actions>
+      <button mat-button mat-dialog-close>No</button>
+      <button mat-button mat-dialog-close cdkFocusInitial type="submit">
+        Ok
+      </button>
+    </mat-dialog-actions>
+  </div>
+</form>
