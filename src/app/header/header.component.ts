@@ -15,14 +15,13 @@ import {
   styleUrl: './header.component.scss',
 })
 export class HeaderComponent implements OnInit {
-  [x: string]: any;
-
+  /* 
   addProject(newProject: {
     position: number;
     Kundenname: string;
     Projektname: string;
     Erstellername: string;
-    /*   Erstelldatum: Date; */
+    /*   Erstelldatum: Date;
   }) {
     this['dataSource'].push({
       position: this['dataSource'].length + 1,
@@ -33,8 +32,7 @@ export class HeaderComponent implements OnInit {
     });
 
     this['table'].renderRows();
-
-  }
+  } */
   readonly dialog = inject(MatDialog);
 
   openDialog(

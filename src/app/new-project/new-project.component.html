@@ -1,6 +1,6 @@
 <form (ngSubmit)="onSubmit()" #f="ngForm" class="example-form">
   <div id="user-data" ngModelGroup="userData">
-    <table class="example-full-width" cellSpacing="0">
+    <table class="example-full-width" cellSpacing="30px">
       <tr>
         <td>
           <!-- Kundenname -->
@@ -12,7 +12,7 @@
               id="kundenName"
               class="form-control"
               placeholder="Kundenname"
-              [ngModel]="Kundenname"
+              ngModel
               name="kundenName"
             />
           </mat-form-field>
@@ -28,7 +28,7 @@
               id="projektName"
               class="form-control"
               placeholder="Projektname"
-              [ngModel]="Projektname"
+              ngModel
               name="projektName"
             />
           </mat-form-field>
@@ -45,7 +45,7 @@
             id="Projektbetreuer"
             class="form-control"
             placeholder="Erstellername"
-            [ngModel]="Erstellername"
+            ngModel
             name="erstellerName"
           />
         </mat-form-field>
@@ -53,7 +53,7 @@
 
       <td>
         <mat-form-field class="example-full-width">
-          <mat-label for="erstellerDatum">Erstellerdatum:</mat-label>
+          <mat-label for="erstellerDatum">Erstelldatum:</mat-label>
           <input matInput [matDatepicker]="datepicker" />
 
           <mat-hint>MM/DD/YYYY</mat-hint>
@@ -63,7 +63,7 @@
             id="Erstellerdatum"
             class="form-control"
             placeholder="Erstellerdatum"
-            [ngModel]="Erstellerdatum"
+            ngModel
             name="erstellerDatum"
           />
 
@@ -74,7 +74,7 @@
 
           <mat-datepicker #datepicker
             ><mat-datepicker-actions>
-              <button mat-button matDatepickerCancel>Cancel</button>
+              <button mat-raised-button matDatepickerCancel>Cancel</button>
               <button mat-raised-button matDatepickerApply>Apply</button>
             </mat-datepicker-actions></mat-datepicker
           >
@@ -89,9 +89,9 @@
   </div>
   <div>
     <mat-dialog-actions>
-      <button mat-button mat-dialog-close>No</button>
-      <button mat-button mat-dialog-close cdkFocusInitial type="submit">
-        Ok
+      <button mat-raised-button mat-dialog-close>No</button>
+      <button mat-raised-button mat-dialog-close cdkFocusInitial type="submit">
+        TAKE IT
       </button>
     </mat-dialog-actions>
   </div>

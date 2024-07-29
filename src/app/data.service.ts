@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
 import { Schaetzungstable } from './shared/schaetzungstable.model';
-
+import { BehaviorSubject, Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root',
 })
 export class DataService {
-  constructor() {}
+  /*   constructor() {} */
   /////////////Variablenname: Typdefinition[] = [Daten]
   private ELEMENT_DATA: Schaetzungstable[] = [
     {
@@ -29,25 +29,26 @@ export class DataService {
       Erstellername: 'Henry',
       Erstelldatum: new Date('2023 - 01 - 01'),
     },
-
-    /**
-     * @title Adding and removing data when using an array-based datasource.
-     */
   ];
 
-  private dataSource = [...this.ELEMENT_DATA];
+  private dataSource = new BehaviorSubject<Schaetzungstable[]>(
+    this.ELEMENT_DATA
+  ); /* [...this.ELEMENT_DATA]; */
 
-  getProjects(): Schaetzungstable[] {
-    return this.dataSource;
+  getProjects(): Observable<Schaetzungstable[]> {
+    return this.dataSource.asObservable();
   }
 
-  addProject(newProject: {
-    position: number;
+  addProject(newProject: Schaetzungstable) {
+    const currentData = this.dataSource.value;
+    this.dataSource.next([...currentData, newProject]);
+
+    /*  position: number;
     Kundenname: string;
     Projektname: string;
     Erstellername: string;
-    Erstelldatum: Date;
-  }) {
+    Erstelldatum: Date; */
+  } /* {
     this.dataSource.push(newProject);
-  }
+  } */
 }
