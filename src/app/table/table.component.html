@@ -2,7 +2,7 @@
 
 <!--dataSource ist für die Datenanbindung nötig -->
 
-<table mat-table [dataSource]="dataSource" class="mat-elevation-z8 demo-table">
+<mat-table [dataSource]="dataSource" class="mat-elevation-z8 demo-table">
   <!-- Position Column -->
   <ng-container matColumnDef="position">
     <th mat-header-cell *matHeaderCellDef>No.</th>
@@ -35,4 +35,4 @@
 
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
   <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
-</table>
+</mat-table>
